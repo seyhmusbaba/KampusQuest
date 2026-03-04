@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#8B1A1A" />
+  <title>KampüsQuest — MKÜ</title>
+  <meta name="description" content="Hatay Mustafa Kemal Üniversitesi · KampüsQuest · Kampüs Keşif ve Rekabet Oyunu" />
+  <meta name="author" content="Hatay Mustafa Kemal Üniversitesi" />
+  <meta property="og:title" content="KampüsQuest — MKÜ" />
+  <meta property="og:description" content="MKÜ kampüsünü keşfet, yarış, XP kazan!" />
+  <meta property="og:image" content="/mku_logo.png" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/logo192.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #060c1c; font-family: 'Segoe UI', sans-serif; }
+    #root { height: 100vh; overflow: hidden; }
+
+    /* Loading ekranı */
+    #app-loading {
+      position: fixed; inset: 0;
+      background: #060c1c;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 20px; z-index: 9999;
+      transition: opacity .5s ease;
+    }
+    #app-loading img { width: 90px; height: 90px; border-radius: 50%; filter: drop-shadow(0 0 20px rgba(139,26,26,.6)); }
+    #app-loading .title { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: .1em; font-family: monospace; }
+    #app-loading .sub { font-size: 11px; color: rgba(255,255,255,.35); letter-spacing: .06em; font-family: monospace; }
+    #app-loading .bar { width: 120px; height: 3px; background: rgba(255,255,255,.08); border-radius: 2px; overflow: hidden; }
+    #app-loading .bar-fill { height: 100%; width: 0; background: linear-gradient(90deg, #8B1A1A, #c0392b); border-radius: 2px; animation: load-bar 1.4s ease forwards; }
+    @keyframes load-bar { to { width: 100%; } }
+  </style>
+</head>
+<body>
+  <!-- Splash screen -->
+  <div id="app-loading">
+    <img src="/mku_logo.png" alt="MKÜ Logo" />
+    <div class="title">KampüsQuest</div>
+    <div class="sub">HATAY MUSTAFA KEMAL ÜNİVERSİTESİ</div>
+    <div class="bar"><div class="bar-fill"></div></div>
+  </div>
+
+  <noscript>Bu uygulama JavaScript gerektiriyor.</noscript>
+  <div id="root"></div>
+
+  <script>
+    // React yüklenince splash'ı gizle
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const el = document.getElementById('app-loading');
+        if (el) { el.style.opacity = '0'; setTimeout(() => el.remove(), 500); }
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
