@@ -1,5 +1,8 @@
 [phases.install]
-cmds = ["npm install --legacy-peer-deps && chmod +x node_modules/.bin/react-scripts"]
+cmds = ["npm install --legacy-peer-deps"]
 
 [phases.build]
-cmds = ["node node_modules/react-scripts/bin/react-scripts.js build"]
+cmds = ["node ./node_modules/react-scripts/bin/react-scripts.js build"]
+
+[start]
+cmd = "npx serve -s build -l 3000"
