@@ -1,5 +1,5 @@
 [phases.install]
-cmds = ["npm install --legacy-peer-deps"]
+cmds = ["npm install --legacy-peer-deps && chmod +x node_modules/.bin/react-scripts"]
 
 [phases.build]
-cmds = ["npm run build"]
+cmds = ["node node_modules/react-scripts/bin/react-scripts.js build"]
