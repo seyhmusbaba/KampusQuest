@@ -1,3 +1,3 @@
-# 🎮 MKÜ Campus Game
+# MKÜ Campus Game
 
-demo
+henüz demo
